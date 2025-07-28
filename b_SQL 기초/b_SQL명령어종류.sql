@@ -1,4 +1,4 @@
--- b_SQL 기초 > b_SQL 명령어 종류
+-- b_SQL 기초 > b_SQL 명령어 종류.sql
 
 ### b_SQL 명령어 종류 ###
 
