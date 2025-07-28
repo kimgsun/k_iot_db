@@ -1,4 +1,4 @@
-### c_ddl > b_ddl01 ###
+### c_ddl > b_ddl02 ###
 
 # --- 데이터베이스 ---
 # 1. 생성(CREATE)
@@ -75,3 +75,23 @@ alter table student
 modify column email varchar(100);
 
 desc student;
+
+# : 컬럼 삭제 (drop)
+# alter table 테이블명 drop column 컬럼명;
+alter table student
+drop email;
+
+describe student;
+
+# cf) 테이블 수정 시 column 키워드 생략 가능
+# add, modify, drop 만 작성 가능
+
+# --- 테이블 데이터 삭제(초기화) ---
+# : truncate
+# : 테이블의 구조는 그대로 두고, 내부의 모든 데이터를 삭제 (초기 상태로 되돌림)
+truncate table student;
+
+desc student;
+
+# if exists / if not exists
+# > 선택적 키워드, 오류 방지 키워드
