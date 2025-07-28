@@ -154,3 +154,11 @@ values (12345.67, 123456.7890, 999999999999.99);
 	cf) Boolean 값에 대소문자 구분 X
 */
 
+create table employee (
+	is_senior Boolean
+);
+
+insert into employee values(true);
+
+select * from employee;
+# true값이 1로 변환되어 저장
