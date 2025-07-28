@@ -20,14 +20,14 @@
     - 대용량 데이터를 관리하거나, 여러 사용자와 공유하는 DB(데이터베이스)
     
     1) 종류
-		- 관계형(RDBMS)
-			> Related (관계적인: 행열이 정해진 표의 형태)
-            > 가장 흔히 사용하는 시스템, 테이블 기반, SQL 사용
-			: MySQL, Oracle, MariaDB 등
-        - 비관계형(NoSQL)
-			> 유연한 데이터 모델을 제공, 정형적 X
-            > 대량의 분산된 데이터 처리에 용이
-			: MongoDB, Redis 등
+	- 관계형(RDBMS)
+		> Related (관계적인: 행열이 정해진 표의 형태)
+		> 가장 흔히 사용하는 시스템, 테이블 기반, SQL 사용
+		: MySQL, Oracle, MariaDB 등
+	- 비관계형(NoSQL)
+		> 유연한 데이터 모델을 제공, 정형적 X
+		> 대량의 분산된 데이터 처리에 용이
+		: MongoDB, Redis 등
             
 	2) RDBMS에서 사용되는 SQL 언어
 		- SQL (Structured Query Language)
