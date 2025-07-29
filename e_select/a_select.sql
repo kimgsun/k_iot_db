@@ -188,7 +188,6 @@ where
 select * from `members`
 where
 	join_date < curdate();
-    sf
     
 select curdate();
 select now();
