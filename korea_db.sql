@@ -4,7 +4,7 @@ drop database if exists `korea_db`;
 
 create database `korea_db`;
 use `korea_db`;
-
+sf
 create table `korea_db`.`members`(
 	member_id int auto_increment primary key,
     name varchar(255) not null,
