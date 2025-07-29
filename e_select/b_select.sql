@@ -99,3 +99,28 @@ order by
     limit 행수 (offset 시작행)
     - 첫 번째 행이 기본값 0
 */
+
+select * from `members`;
+
+select * from `members`
+limit 5;
+
+select * from `members`
+limit 5 offset 2; -- offset 2: 세 번째 행부터 출력
+
+select * from `members`
+order by
+	grade desc
+limit 5;
+
+/*
+	cf) distinct(별개의, 뚜렷한)
+    : 중복된 결과를 제거
+    - 조회된 결과에서 중복된 데이터가 존재하면 1개만 남기고 생략
+    
+    조회할 열 이름 앞에 distinct 키워드만 작성
+*/
+select * from `members`;
+
+select distinct area_code from `members`;
+select distinct grade from `members`;
