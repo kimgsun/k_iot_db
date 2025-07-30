@@ -1,4 +1,4 @@
-# baseball_league 파일 생성 (프로젝트 최상단)
+# baseball_league 파일 생성 (프로젝트 최상단) #
 
 ### 야구 데이터베이스 ###
 create database if not exists baseball_league;
