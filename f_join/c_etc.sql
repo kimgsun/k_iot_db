@@ -33,3 +33,25 @@ where
 	- 실제 테이블은 자기 자신 하나이지만
 		, 테이블을 두 번 사용하는 것처럼 별칭(alias)을 부여하여 조인
 */
+
+# 같은 지역에 사는 회원끼리 묶기
+# area_code
+select
+	A.name as '회원1', B.name as '회원2', A.area_code
+from
+	`members` A
+    join `members` B
+    on A.area_code = B.area_code
+where
+	-- 중복 제거
+    A.member_id < B.member_id;
+
+# 등급이 같은 회원끼리 묶기
+select
+	A.name '회원1', B.name '회원2', A.grade
+from
+	`members` A
+    join `members` B
+    on A.grade = B.grade
+where
+	A.member_id < B.member_id;
