@@ -60,7 +60,8 @@ WHERE P.member_id = 1;
 
 # cf) 조인 시 두 개 이상의 테이블에서 동일한 열 이름이 존재하는 경우
 #		>> 테이블명(별칭).열이름 형식으로 표기!
-# 
+# Error Code: 1052. Column 'member_id' in where clause is ambiguous
+# > where 절이 애매하다
 
 # 내부 조인 예제 2 #
 # : 금액이 20000원 이상인 모든 구매 내역 조회
@@ -114,6 +115,11 @@ where member_id IN (
 --     from `purchases` P
 -- );
 -- 별칭 불가!
+
+# 내부 조인 예제 5 #
+# : 구매 금액이 가장 높은 회원의 member_id, name, total_amount(총 구매 금액)
+select
+	M.name, sum(P.amount)
 
 ## 내부 조인 사용 시 주의점 ##
 # 1) 동일 컬럼 이름: 반드시 '별칭.컬럼명' 형태로 구분하여 작성
