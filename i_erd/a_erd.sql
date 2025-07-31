@@ -99,3 +99,13 @@ create table course_enrollment ( # 강의 등록 테이블 (수강)
 # 3. 연결하고자 하는 Connection 선택 > Next
 # 4. 생성하고자 하는 스키마(Database) 선택 > Next
 # 5. Execute 실행 - 생성
+
+### ERD 개체-관계 다이어그램의 관계 표시 ###
+# | : 정확히 1개
+# < : 여러 개 (1 이상)
+# O : 0개 (없어도 됨)
+
+# 예시 #
+# 회원(Member) 1명이 주문(Order)을 여러 개 할 수 있음 (Member |< Order) - 1:N
+# 주문(Order)은 0개 이상의 리뷰(Review)를 가질 수 있음 (Order O< Review) - 0:N
+# 사원(Employee)는 정확히 하나의 부서(Department)에 소속됨 (Employee | Department) - 1:1
