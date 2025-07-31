@@ -82,3 +82,18 @@ begin
 			set credit = 'B';
 		when point >= 70 then
 			set credit = 'C';
+		else
+			set credit = 'F';
+	end case;
+    select concat('취득 점수: ', point), concat('학점: ', credit);
+    
+end ^^
+
+delimiter ;
+
+call caseProc();
+
+-- 프로시저 삭제
+drop procedure caseProc;
+
+# 프로시저 변경 시 삭제 먼저 > 변경된 프로시저 다시 생성 > 호출
