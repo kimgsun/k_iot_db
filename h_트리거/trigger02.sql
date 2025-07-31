@@ -30,19 +30,71 @@ drop trigger if exists singer_updateTrg;
 delimiter $$
 create trigger singer_updateTrg
 	after update
-    on singer
+    on `singer`
     for each row
 begin
 	insert into backup_singer
     values
 		(
-			ORD.mem_id, ORD.mem_name, ORD.mem_number, ORD.addr
+			OLD.mem_id, OLD.mem_name, OLD.mem_number, OLD.addr
             , '수정', curdate(), current_user()
         );
 end $$
 
 delimiter ;
 
-# ORD 테이블
+# OLD 테이블
 # : update 또는 delete가 수행될 때
 # - 변경 | 삭제 전의 데이터가 잠깐 저장되는 임시 테이블
+
+# curdate(): 현재 날짜
+select curdate();
+
+# current_user(): 현재 작업 중인 사용자
+select current_user();
+
+select * from `singer`;
+
+update `singer`
+set
+	addr = '미국'
+where
+	mem_id = 'BLK';
+   
+SET SQL_SAFE_UPDATES=0; # 0: 모드 해제
+SET SQL_SAFE_UPDATES=1; # 1: 모드 사용
+
+select * from `backup_singer`;
+select * from `singer`;
+
+-- 트리거 삭제
+-- drop trigger `singer_deleteTrg`;
+
+### 삭제 시 발생되는 트리거 ###
+drop trigger if exists `singer_deleteTrg`;
+
+delimiter $$
+create trigger `singer_deletTrg`
+	after delete
+    on `singer`
+    for each row
+begin
+	insert into `backup_singer`
+    values
+		(
+			OLD.mem_id, OLD.mem_name, OLD.mem_number, OLD.addr
+            , '삭제', curdate(), current_user()
+        );
+        
+end $$
+delimiter ;
+
+delete from `singer`
+where
+	mem_number >= 7;
+    
+SET SQL_SAFE_UPDATES=0; # 0: 모드 해제
+SET SQL_SAFE_UPDATES=1; # 1: 모드 사용
+
+select * from `backup_singer`;
+select * from `singer`;
